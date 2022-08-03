@@ -37,7 +37,7 @@ Pod::Spec.new do |spec|
 spec.vendored_frameworks = 'EphoneSDK.framework'
 
   spec.source_files  = "EphoneSDK.framework/**/*"
-  #spec.exclude_files = "Classes/Exclude"
+  spec.exclude_files = "EphoneSDK.framework/*.plist"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -61,7 +61,12 @@ spec.vendored_frameworks = 'EphoneSDK.framework'
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
   
-  
+ spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+#spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'armv7 arm64' }
+    
+    
+    #spec.framework = 'UIKit', 'CoreTelephony', 'SystemConfiguration'
+    #spec.ios.libraries = 'sqlite3.0', 'c++', 'iconv'
   
 spec.dependency "AFNetworking"
 spec.dependency "MJExtension"
