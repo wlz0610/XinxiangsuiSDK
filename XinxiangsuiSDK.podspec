@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "XinxiangsuiSDK"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.2"
   spec.summary      = "Bluetooth configuration Framework of Xinxiangsui device."
 
 
@@ -22,11 +22,14 @@ Pod::Spec.new do |spec|
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
-  spec.license      = "MIT"
+  speclicense = { :type => 'CopyRight', :text => <<-LICENSE
+                   Copyright 2022 Eaphone. All rights reserved.
+                 LICENSE
+               }
 
 
 
-  spec.author             = { "wanglizhen" => "1690076476@qq.com" }
+  spec.author             = { "wanglizhenios@163.com" => "wanglizhenios@163.com" }
 
 
   spec.platform     = :ios, "9.0"
@@ -34,9 +37,10 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/wlz0610/XinxiangsuiSDK.git", :tag => spec.version }
 
-spec.vendored_frameworks = 'EphoneSDK.framework'
+#spec.vendored_frameworks = 'EphoneSDK.framework'
+spec.ios.vendored_frameworks ='EphoneSDK.framework'
 
-  spec.source_files  = "EphoneSDK.framework/**/*"
+  spec.source_files  = "EphoneSDK.framework/headers/*"
   spec.exclude_files = "EphoneSDK.framework/*.plist"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -49,7 +53,7 @@ spec.vendored_frameworks = 'EphoneSDK.framework'
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
-  # spec.framework  = "SomeFramework"
+   spec.framework  = "EphoneSDK"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
@@ -68,9 +72,9 @@ spec.vendored_frameworks = 'EphoneSDK.framework'
     #spec.framework = 'UIKit', 'CoreTelephony', 'SystemConfiguration'
     #spec.ios.libraries = 'sqlite3.0', 'c++', 'iconv'
   
-spec.dependency "AFNetworking"
-spec.dependency "MJExtension"
-spec.dependency "YYKit"
-spec.dependency "MQTTClient"
+spec.dependency "AFNetworking", "~> 4.0.1"
+spec.dependency "MJExtension",  "~> 3.2.4"
+spec.dependency "YYKit",        "~> 1.0.9"
+spec.dependency "MQTTClient",   "~> 0.15.3"
 
 end
